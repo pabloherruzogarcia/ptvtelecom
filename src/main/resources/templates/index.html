@@ -1,12 +1,69 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+    <head>
+        <style>
+            #firma {
+                border: 1px solid black;
+                width: 300px;
+                height: 150px;
+            }
+        </style>
+    </head>
+    <body>
+        PTV TELECOM PRUEBA TECNICA
+        <br>
+        <img src="PTV.PNG" alt="logo ptv telecom">
+        <br>
+        <br>
+            <form id="form"action="/ws/accesotec/vista">
+                <label for="id">Usuario:</label><br>
+                <input type="text" id="id" name="id" value="11678"><br>
+                <label for="dni">DNI:</label><br>
+                <input type="text" id="dni" name="dni" value="26248931C">
 
-</head>
-<body>
-PTV TELECOM PRUEBA TECNICA
+                <br>
+                <br>
+                <canvas id="firma"></canvas>
+                <br><br>
+                <button type="button" id="clear-btn">Limpiar</button>
+                <br><br>
+                <input type="submit" value="Abre vista formulario!">
+            </form>
+
+        <script>
+            // Configurar el canvas para la firma
+            const canvas = document.getElementById('firma');
+            const ctx = canvas.getContext('2d');
+            let drawing = false;
+
+            canvas.addEventListener('mousedown', (e) => {
+                drawing = true;
+                ctx.beginPath();
+                ctx.moveTo(e.offsetX, e.offsetY);
+            });
+
+            canvas.addEventListener('mousemove', (e) => {
+                if (drawing) {
+                    ctx.lineTo(e.offsetX, e.offsetY);
+                    ctx.stroke();
+                }
+            });
+
+            canvas.addEventListener('mouseup', () => {
+                drawing = false;
+            });
+
+            canvas.addEventListener('mouseout', () => {
+                drawing = false;
+            });
+
+            // Limpiar el canvas
+            document.getElementById('clear-btn').addEventListener('click', () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            });
 
 
 
 
-</body>
+        </script>
+    </body>
 </html>

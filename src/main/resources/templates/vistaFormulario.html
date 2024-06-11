@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:form="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+        <form action="/ws/accesotec/enviaEmail">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" th:value="${user.nombre}"><br>
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email" th:value="${user.email}">
+            <br>
+            <br>
+            <canvas id="firma" ></canvas>
+            <br><br>
+            <button type="button" id="clear-btn">Limpiar</button>
+            <input type="submit" value="Crear PDF!">
+        </form>
+
+</body>
+</html>

@@ -3,6 +3,11 @@ package com.ptvprueba.ptvtelecom.repositories;
 import com.ptvprueba.ptvtelecom.common.entities.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UsuarioRepository extends JpaRepository<Usuario, String> {
+import java.util.Optional;
+
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+    Usuario findByEmail(String email);
+    Optional<Usuario> findById(Long id);
+
 
 }

@@ -2,6 +2,9 @@ package com.ptvprueba.ptvtelecom.common.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.lang.NonNullApi;
+
+import java.awt.*;
 
 
 @Entity
@@ -15,9 +18,9 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id;
     private String dni;
     private String nombre;
     private String email;
-    private String firma;
+    private Canvas firma;
 }
