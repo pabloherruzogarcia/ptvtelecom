@@ -15,6 +15,6 @@ import java.awt.*;
 @Controller
 public interface MailController {
 
-    @PostMapping(value= "/enviaEmail")
+    @GetMapping(value= "/enviaEmail")
     String enviarEmail(@RequestParam String email, @RequestParam String nombre, @Param("firma") Canvas firma, Model model);
 }
